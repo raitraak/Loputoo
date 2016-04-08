@@ -4,7 +4,7 @@
    Author's custom styles
    ========================================================================== */
 
-#login-form, #register-form {
+#login_form, #register_form {
    max-width: 330px;
    margin: 0 auto;
 }

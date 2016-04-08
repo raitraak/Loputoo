@@ -1,12 +1,11 @@
 
     body {
-        background-color: #dfdfdf;
         font-size: 13px;
         color: #555;
     }
     form {
         background-color: #fff;
-        width: 430px;
+        max-width: 330px;
         border-radius: 5px;
         -moz-border-radius: 5px;
         margin: 30px auto;
@@ -26,8 +25,8 @@
         color: #555;
     }
     .line {
-        margin: 20px 0 20px 30px;
-        width: 365px;
+        margin: 20px 0 20px 0px;
+        max-width: 330px;
         height: 1px;
         background-color: #d7d7d7;
     }

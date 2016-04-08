@@ -16,15 +16,15 @@ $admin_password='123456';
 
 //strings
 //login
-$msg_pwd_error='Password incorrect';
-$msg_un_error='Username Doesn\'t exist';
-$msg_email_1='User Account not yet activated.';
-$msg_email_2='Click here to resend activation email';
+$msg_pwd_error='Vale parool';
+$msg_un_error='Sellist kasutajanime ei leidu';
+$msg_email_1='Konto ei ole aktiveeritud';
+$msg_email_2='Saada uus email aktiveerimiseks';
 
 //Registration form
-$msg_reg_user='Username taken.Kindly choose different username';
-$msg_reg_email='Email Already registered';
-$msg_reg_activ='Activation code has been successfully sent to your Email Address';
+$msg_reg_user='See kasutajanimi on juba võetud';
+$msg_reg_email='See email on juba registreeritud';
+$msg_reg_activ='Aitäh! Teile saadetakse email konto aktiveerimiseks';
 
 //Admin login
 $msg_admin_pwd='Incorect password';
