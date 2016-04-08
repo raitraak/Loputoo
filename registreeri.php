@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="css/main.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,25 +44,23 @@
 <div class="container">
 
     <form class="form-horizontal" id="register_form" method="post">
-         <h2>Loo uus konto</h2>
-
-        <div class="line"></div>
+        <h3>Loo uus konto</h3>
         <div class="form-group">
-            <input type="text" id="inputEmail" name="email" placeholder="Email">
+            <input class="form-control" type="text" id="inputEmail" name="email" placeholder="Email">
         </div>
         <div class="form-group">
-            <input type="text" id="inputuserid" name="username" placeholder="Kasutajanimi">
+            <input class="form-control" type="text" id="inputuserid" name="username" placeholder="Kasutajanimi">
         </div>
         <div class="form-group">
-            <input type="password" id="inputPassword" name="password" placeholder="Parool">
+            <input class="form-control" type="password" id="inputPassword" name="password" placeholder="Parool">
         </div>
         <div class="form-group">
-            <input type="password" id="inputPassword_2" name="retype_password" placeholder="Parool uuesti">
+            <input class="form-control" type="password" id="inputPassword_2" name="retype_password" placeholder="Parool uuesti">
         </div>	
-
+<div class="form-group">
 <button type="submit"
         class="btn btn-lg btn-primary btn-sign-in" data-loading-text="Laeb...">Registreeri</button>
-
+</div>
         <div class="messagebox">
             <div id="alert-message"></div>
         </div>

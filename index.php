@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,8 +48,20 @@
                 </form>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="registreeri.php"><span class="glyphicon glyphicon-user"></span> Loo konto</a></li>
-                <li><a href="logi_sisse.php"><span class="glyphicon glyphicon-log-in"></span> Logi sisse</a></li>
+                <?php
+                session_start();
+
+                if ( isset($_SESSION['login']) || $_SESSION['login'] == true) {
+                    echo "<li><a href='konto.php'><span class='glyphicon glyphicon-user'></span> Minu konto</a></li>";
+                    echo "<li><a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> Logi välja</a></li>";
+                }
+
+                else {
+                    echo "<li><a href='registreeri.php'><span class='glyphicon glyphicon-user'></span> Loo konto</a></li>";
+                    echo "<li><a href='logi_sisse.php'><span class='glyphicon glyphicon-log-in'></span> Logi sisse</a></li>";
+                }
+
+                ?>
             </ul>
         </div>
     </div>

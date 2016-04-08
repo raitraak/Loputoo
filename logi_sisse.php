@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <head>
     <title>PHP Login System</title>
@@ -6,7 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="css/main.css" rel="stylesheet" media="screen">
+    <link href="css/font-awesome.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,7 +36,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">WebSiteName</a>
+            <a class="navbar-brand" href="index.php">WebSiteName</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
 
@@ -42,14 +47,13 @@
 <div class="container">
 
 
-    <form class="form-signin" id="login_form">
-         <h2>Logi sisse või loo <a href="registreeri.php">uus konto</a></h2>
-        <div class="line"></div>
+    <form class="form-horizontal" id="login_form">
+         <h3>Logi sisse või loo <a href="registreeri.php">uus konto</a></h3>
         <div class="form-group">
-            <input type="text" id="inputEmail" name="username" placeholder="Kasutajanimi">
+            <input class="form-control" type="text" id="inputEmail" name="username" placeholder="Kasutajanimi">
         </div>
         <div class="form-group">
-            <input type="password" id="inputPassword" name="password" placeholder="Parool">
+            <input class="form-control" type="password" id="inputPassword" name="password" placeholder="Parool">
         </div>
 
         <div class="form-group">
@@ -59,16 +63,13 @@
 
         </div>
 
-
-
-
         <div class="messagebox">
             <div id="alert-message"></div>
         </div>
-		<div class="social">
-		<a href="twitter_connect.php"><img src="img/twitter.png"/></a>
-		<a href="facebook_connect.php"><img src="img/fb.png"/></a>
-		<a href="google_connect.php?=code"><img src="img/gplus.png"/></a>
+		<div class="form-group">
+		<a href="twitter_connect.php"></a>
+		<a href="facebook_connect.php"></a>
+		<a href="google_connect.php?=code"></a>
 		
 		</div>
     </form>
@@ -155,7 +156,7 @@ onfocusout: false,
 							
                                 $('#login_form').fadeOut(5000);
 								//$("button").button('reset');
-                                window.location = "members.php"
+                                window.location = "konto.php"
                             } else {	
 							$("button").button('reset');
 							console.log(msg.result);
