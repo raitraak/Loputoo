@@ -3,13 +3,13 @@
 $server='localhost';
 $db_user='root';
 $db_pwd='root';
-$db_name='test';
+$db_name='loputoo';
 $table_name='users';
 $table_name_social='users_social';
 //email configuraion
 $from_address="admin@devlup.com";
 //domain configuration
-$url="http://projects.devlup.com/LoginSystemv21";
+$url="http://localhost:8888/lõputöö/activate.php";
 //Admin username
 $admin_user='admin';
 $admin_password='123456';
