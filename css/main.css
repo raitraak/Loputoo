@@ -2,7 +2,7 @@
    Author's custom styles
    ========================================================================== */
 
-#login_form, #register_form {
+#login_form, #register_form, #change_password_form, #forgot_pwd, #reset_pwd {
    max-width: 330px;
    margin: 0 auto;
 }

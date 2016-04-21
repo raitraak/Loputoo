@@ -30,44 +30,78 @@ exit;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-	    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="css/main.css" rel="stylesheet" media="screen">
+
 </head>
 
 <body>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
-    <div class="logo">
-         <h2><?php include('db.php'); echo $logotxt; ?></h2>
 
-    </div>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">WebSiteName</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Lisa uus pilt <span class="glyphicon glyphicon-upload"></span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret pull-right"></span> <?php echo "".$_SESSION['username']; ?></a>
+                        <ul class="dropdown-menu">
+                            <li><?php
+                                if ( isset($_SESSION['login']) || $_SESSION['login'] == true) {
+                                    ?>
+                                    <a href="muuda_parooli.php">Muuda parooli</a>
+                                    <?php
+                                }
+                                ?></li>
+
+
+                        </ul>
+
+                    </li>
+                    <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logi välja</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
     <form class="form-horizontal" id="change_password_form">
-         <h2>Change Password</h2>
-		 <div class="line"></div>
+         <h2>Muuda parooli</h2>
         <div class="form-group">
-            <input type="text" id="inputuserid" name="username" placeholder="Username" value=<?php echo $_SESSION['username']; ?> disabled>
+            <input class="form-control" type="text" id="inputuserid" name="username" placeholder="Username" value=<?php echo $_SESSION['username']; ?> disabled>
         </div>
 		<div class="form-group">
-            <input type="password" id="inputPasswordOld" name="oldpassword" placeholder="Curent Password">
+            <input class="form-control" type="password" id="inputPasswordOld" name="oldpassword" placeholder="Curent Password">
         </div>
         <div class="form-group">
-            <input type="password" id="inputPassword" name="password" placeholder="New Password">
+            <input class="form-control" type="password" id="inputPassword" name="password" placeholder="New Password">
         </div>
         <div class="form-group">
-            <input type="password" id="inputPassword_2" name="retype_password" placeholder="Retype Password">
+            <input class="form-control" type="password" id="inputPassword_2" name="retype_password" placeholder="Retype Password">
         </div>	
-
-        
-        
 
    
 <button type="submit"
-        class="btn btn-lg btn-primary btn-sign-in" data-loading-text="Loading...">Change password</button>
+        class="btn btn-lg btn-primary btn-sign-in" data-loading-text="Loading...">Kinnita</button>
         <div class="messagebox">
             <div id="alert-message"></div>
         </div>
     </form>
 
+    </div>
 	
 	<script>
         $(document).ready(function() {
@@ -163,6 +197,7 @@ exit;
                             $('.messagebox').hide();
 							$('#alert-message').html(msg);
 							 $('.messagebox').slideDown('slow');
+                            $('button').hide();
                         }
                     });
                 }

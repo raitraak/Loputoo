@@ -4,33 +4,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="css/main.css" rel="stylesheet" media="screen">
 </head>
 <body>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
-    <div class="logo">
-         <h2><?php include('db.php'); echo $logotxt; ?></h2>
 
-    </div>
-    <form class="form-horizontal" id="forgot_pwd" method="post">
-         <h2>Forgot Password</h2>
 
-        <div class="line"></div>
-        <div class="control-group">
-            <input type="text" id="username" name="username" placeholder="Username">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">WebSiteName</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+
+            </div>
         </div>
-        <div class="control-group">
-            <input type="text" id="email" name="email" placeholder="Email">
-        </div>	<a href="registration_form.php" class="btn btn-lg btn-register">Register</a>
+    </nav>
 
-        <button
-        type="submit" class="btn btn-lg btn-primary btn-sign-in" data-loading-text="Loading...">Password Reset</button>
+
+    <div class="container">
+    <form class="form-horizontal" id="forgot_pwd" method="post">
+         <h2>Unustasid parooli?</h2>
+
+        <div class="form-group">
+            <input class="form-control" type="text" id="username" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" id="email" name="email" placeholder="Email">
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary btn-sign-in" data-loading-text="Loading...">Taasta</button>
+        <a href="registreeri.php" class="btn btn-lg btn-register">Loo konto</a>
             <div class="messagebox">
                 <div id="alert-message"></div>
             </div>
     </form>
+
+    </div>
     <script type="text/javascript">
         $(document).ready(function() {
 

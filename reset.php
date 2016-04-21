@@ -5,20 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="css/main.css" rel="stylesheet" media="screen">
+
 </head>
 <body>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
-    <div class="logo">
-         <h2><?php include('db.php'); echo $logotxt; ?></h2>
 
-    </div>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">WebSiteName</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href='logi_sisse.php'><span class='glyphicon glyphicon-log-in'></span> Logi sisse</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
 	<form class="form-horizontal" id="reset_pwd" method="post">
-         <h2>Reset Password</h2>
+         <h2>Taasta parool</h2>
 
-        <div class="line"></div>
 	<?php
 	include("db.php");
 $con=mysqli_connect($server, $db_user, $db_pwd,$db_name) //connect to the database server
@@ -30,7 +49,7 @@ or die ("Could not select to mysql because ".mysqli_error());
 	$key=mysqli_real_escape_string($con,$_GET["k"]);
 	if (!empty($key))
 {
-	
+
 
 	//query database to check activation code
 	$query="select * from ".$table_name." where activ_key='$key' and activ_status='2'";
@@ -45,30 +64,31 @@ or die ("Could not select to mysql because ".mysqli_error());
 			 $_SESSION['username'] = $username;
 			 //html
 			 ?>
-			 
-		
-		
-        <div class="control-group">
-            <input type="password" id="password1" name="password1" placeholder="Password">
+
+
+
+
+                 <div class="control-group">
+            <input class="form-control" type="password" id="password1" name="password1" placeholder="Password">
         </div>
         <div class="control-group">
-            <input type="password" id="password2" name="password2" placeholder="Retype Password">
-        </div>	
+            <input class="form-control" type="password" id="password2" name="password2" placeholder="Retype Password">
+        </div>
 
         <button
         type="submit" class="btn btn-lg btn-primary btn-sign-in" data-loading-text="Loading...">Reset</button>
-		
+
             <div class="messagebox">
                 <div id="alert-message"></div>
             </div>
-   
+
 		<?php
 			}
 			 else
 			 {
-				echo "<div class=\"messagebox\"><div id=\"alert-message\">You can login</div></div>"; 
+				echo "<div class=\"messagebox\"><div id=\"alert-message\">You can login</div></div>";
 			 }
-			 
+
 		 }
 		 else
 		 {
@@ -78,9 +98,9 @@ or die ("Could not select to mysql because ".mysqli_error());
 }
 else
 	echo "<div class=\"messagebox\"><div id=\"alert-message\">error</div></div>";
-	
+
 	?>
-    
+
 	 </form>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -105,18 +125,18 @@ else
                         password2: {
                             required: "Retype your password",
 							equalTo: "Passwords must match"
-							
+
                         },
                     },
-					
+
 				 errorPlacement: function(error, element) {
                         error.hide();
 						$('.messagebox').hide();
                         error.appendTo($('#alert-message'));
                         $('.messagebox').slideDown('slow');
-                       
-						
-						
+
+
+
                     },
 				highlight: function(element, errorClass, validClass) {
                         $(element).parents('.control-group').addClass('error');
@@ -140,15 +160,15 @@ else
                         data: data1,
                         success: function(msg) {
 							 console.log(msg);
-							 
+
 							$('.messagebox').hide();
 							$('.messagebox').addClass("error-message");
 							$('#alert-message').html(msg);
 							 $('.messagebox').slideDown('slow');
-                           
-							
-							
-							
+
+
+
+
                         }
                     });
                 }

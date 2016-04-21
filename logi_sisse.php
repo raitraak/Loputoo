@@ -59,7 +59,7 @@
         <div class="form-group">
             <button id="signin" type="submit" class="btn btn-lg btn-primary btn-sign-in"
                     data-loading-text="Laeb...">Logi sisse</button>
-            <a href="forgot_form.php">Unustasid Parooli?</a>
+            <a href="unustasin_parooli.php">Unustasid Parooli?</a>
 
         </div>
 

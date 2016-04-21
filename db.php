@@ -9,7 +9,7 @@ $table_name_social='users_social';
 //email configuraion
 $from_address="admin@devlup.com";
 //domain configuration
-$url="http://localhost:8888/lõputöö/activate.php";
+$url="http://localhost:8888/lõputöö/";
 //Admin username
 $admin_user='admin';
 $admin_password='123456';

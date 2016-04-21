@@ -58,39 +58,29 @@ exit;
                     <li><a href="#">Lisa uus pilt <span class="glyphicon glyphicon-upload"></span></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo "".$_SESSION['username']; ?></a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-chevron-down pull-right"></span> <?php echo "".$_SESSION['username']; ?></a>
+                        <ul class="dropdown-menu">
+                            <li><?php
+                                if ( isset($_SESSION['login']) || $_SESSION['login'] == true) {
+                                    ?>
+                                    <a href="muuda_parooli.php">Muuda parooli</a>
+                                    <?php
+                                }
+                                ?></li>
+
+
+                        </ul>
+
+                    </li>
                     <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logi välja</a></li>
+
                 </ul>
             </div>
         </div>
     </nav>
 
-
-
-
-
-    <form class="form-horizontal" id="login_form">
-         <h2><?php echo "Tere ".$_SESSION['username']; ?></h2>
-		 <h2>Oled sisse logitud </h2>
-
-        <div class="line"></div>
-
-
-
-        
-<?php
-if ( isset($_SESSION['login']) || $_SESSION['login'] == true) {
-?>
- <a class="forgotten-password-link" href="user_change_password.php">Change password?</a>
- <?php 
-}
-?>
-   <a href="logout.php"
-        class="btn btn-lg btn-primary btn-register">Log Out</a>
-        <div class="messagebox">
-            <div id="alert-message"></div>
-        </div>
-    </form>
 
 </body>
 
