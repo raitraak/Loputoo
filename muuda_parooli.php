@@ -205,9 +205,10 @@ exit;
             });
         });
     </script>
-	
+    <div class="panel-footer navbar-fixed-bottom">
+        <p>Copyright 2016, Developed by Rait Rääk</p>
+    </div>
 </body>
-
 </html>
 
 

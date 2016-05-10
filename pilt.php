@@ -1,8 +1,6 @@
 <?php
 session_start();
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,18 +16,24 @@ session_start();
 </head>
 <body>
 
-<header class="header-image">
-
-<nav class="navbar">
+<nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="glyphicon glyphicon-th"></span>
             </button>
-            <a class="navbar-brand" href="#">www.pixel.ee</a>
+            <a class="navbar-brand" href="index.php">www.pixel.ee</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
 
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Otsi märksõna järgi...">
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                </form>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <?php
 
@@ -47,58 +51,53 @@ session_start();
 
                 ?>
             </ul>
-
+        </div>
         </div>
 </nav>
-    <div class="container">
-
-    <h1 id="header-title">Fotoalbum fotograafidele ja digikunstnikele</h1>
-
-        <p id="header-text">Oled teinud mõne ägeda pildi ja tahaksid seda teistega jagada? Registreeri konto ja lae oma töö üles. Meie vaatame selle üle ja sobivusel lisame esilehele. Pixels on loodud selleks, et edendada Eesti andekaid fotograafe ja kunstnikke.</p>
-
-        <div class="col-lg-4 col-lg-offset-4" id="search">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Otsi pilte märksõna järgi...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-      </span>
-            </div><!-- /input-group -->
-            <div class="row" id="categories">
-            <a href="#">inimesed</a>
-            <a href="#">loomad</a>
-            <a href="#">arhidektuur</a>
-            <a href="#">autod</a>
-            <a href="#">abstraktne</a>
-            <a href="#">abstraktne</a>
-            <a href="#">abstraktne</a>
-            </div>
-
-        </div><!-- /.col-lg-6 -->
-    </div>
-
-</header>
 
 <div class="container">
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-572b0bc1cd2f18f3"></script>
 
-<div class="row">
+<?php
 
-    <h2>Viimati lisatud pildid</h2>
+include("db.php");
+$con=mysqli_connect($server, $db_user, $db_pwd,$db_name) //connect to the database server
+or die ("Could not connect to mysql because ".mysqli_error());
+
+mysqli_select_db($con,$db_name)  //select the database
+or die ("Could not select to mysql because ".mysqli_error());
+
+$id = $_GET["id"];
+$sql = "SELECT * FROM images WHERE id=$id and status=1";
+$result = $con->query($sql);
 
 
+while($row = $result->fetch_assoc()) {
 
-        <?php
+    echo "<div class='col-md-8'>
 
-        include("image_processing.php");
+                    <img id='pilt' class='img-responsive img-thumbnail' src=".$row["url"].">
+        </div>
+        <div class='col-md-4'>
+            <h2>$row[title]</h2>
+            <p><strong>Autor:</strong> $row[user]</p>
+            <p><strong>Lisatud:</strong> $row[date]</p>
+            <p><strong>Kategooria:</strong> $row[category]</p>
+            <p><strong>Kirjeldus:</strong> $row[description]</p>
+            <a href='$row[url]'><button class='btn btn-danger'>Vaata originaalsuuruses</button></a>
 
-        ?>
-</div>
+        </div>";
+}
+
+
+?>
+
 </div>
 
 <div class="panel-footer">
-
     <p>Copyright 2016, Developed by Rait Rääk</p>
 </div>
-
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>

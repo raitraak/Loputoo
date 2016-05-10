@@ -7,7 +7,7 @@ $db_name='loputoo';
 $table_name='users';
 $table_name_social='users_social';
 //email configuraion
-$from_address="admin@devlup.com";
+$from_address="vanishedvikings@gmail.com";
 //domain configuration
 $url="http://localhost:8888/lõputöö/";
 //Admin username

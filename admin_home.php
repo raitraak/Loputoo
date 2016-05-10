@@ -14,7 +14,7 @@ if (!isset($_SESSION['admin'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-     <title>PHP Login System</title>
+     <title>Admin paneel</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,13 +28,6 @@ if (!isset($_SESSION['admin'])) {
    
     <!-- Custom Fonts -->
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 
@@ -96,15 +89,8 @@ if (!isset($_SESSION['admin'])) {
             <ul class="nav navbar-top-links navbar-right">
               
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                    </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <!--<li><a href="admin_profile.php"><i class="fa fa-user fa-fw"></i> Admin Profile</a>
-                        </li>
-                        <li><a href="admin_settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li> -->
+
                         <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -117,17 +103,7 @@ if (!isset($_SESSION['admin'])) {
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
+
                         <li>
                             <a href="admin_home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
@@ -144,7 +120,6 @@ if (!isset($_SESSION['admin'])) {
 						<li>
                             <a href="logout.php"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                         </li>
-                        
                        
                     </ul>
                 </div>
@@ -175,13 +150,8 @@ if (!isset($_SESSION['admin'])) {
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
+
+
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6  col-xs-9">
@@ -197,13 +167,7 @@ if (!isset($_SESSION['admin'])) {
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
+
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-xs-9">
@@ -219,13 +183,7 @@ if (!isset($_SESSION['admin'])) {
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
+
                     </div>
                 </div>
 				
@@ -242,13 +200,6 @@ if (!isset($_SESSION['admin'])) {
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -266,13 +217,39 @@ if (!isset($_SESSION['admin'])) {
                         </div>
                         <!-- /.panel-body -->
                     </div>
-                   
+
+                    <h1>Administreeri</h1>
+
+<?php
+                    $sql = "SELECT * FROM images WHERE status=0 ORDER by id DESC";
+                    $result = $con->query($sql);
+
+                    while($row = $result->fetch_array()) {
+
+                    echo "<div class='col-lg-4 col-sm-6'>
+
+                        <a class='thumbnail' href='pilt.php?id=$row[id]'>
+                            <img src='$row[url]' class='img-responsive' onload='fadeIn(this)'>
+                        </a>
+                        <form method='POST' id='delete' action='admin_delete.php?id=$row[id]'>
+                <button type='submit' id='$row[id]'>Kustuta</button>
+                </form>
+
+                <form method='POST' id='delete' action='admin_approve.php?id=$row[id]'>
+                <button type='submit' id='$row[id]'>Aksepteeri</button>
+                </form>
+                    </div>";
+
+                    }
+
+            ?>
+
                 </div>
                 <!-- /.col-lg-8 -->
-                
                
             </div>
             <!-- /.row -->
+
         </div>
         <!-- /#page-wrapper -->
 

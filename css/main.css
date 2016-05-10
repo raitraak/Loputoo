@@ -2,19 +2,74 @@
    Author's custom styles
    ========================================================================== */
 
-#login_form, #register_form, #change_password_form, #forgot_pwd, #reset_pwd {
+#login_form, #register_form, #change_password_form, #forgot_pwd, #reset_pwd, #img_upload {
    max-width: 330px;
    margin: 0 auto;
 }
 
 
+.header-image {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: url('../img/header.jpg') no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+
+}
+
+#header-text {
+    color: whitesmoke;
+}
+
+.col-lg-4 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
 
 
 
+#header-title {
+    color: white;
+    padding-top: 40px;
+}
+
+a {
+
+    color: #2b2b2b;
+    text-decoration: none;
 
 
+}
 
+h2 {
+    text-align: center;
+}
 
+nav {
+
+    text-align: center;
+}
+
+.panel-footer p {
+    text-align: center;
+}
+
+#categories {
+    padding-top: 15px;
+}
+
+#categories a {
+    color: whitesmoke;
+    padding-right: 5px;
+}
+
+.panel-footer {
+
+    margin-top: 200px;
+}
 
 
 
