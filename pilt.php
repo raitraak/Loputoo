@@ -1,14 +1,39 @@
 <?php
 session_start();
+
+include("db.php");
+$con=mysqli_connect($server, $db_user, $db_pwd,$db_name) //connect to the database server
+or die ("Could not connect to mysql because ".mysqli_error());
+
+mysqli_select_db($con,$db_name)  //select the database
+or die ("Could not select to mysql because ".mysqli_error());
+
+$id = $_GET["id"];
+$sql = "SELECT * FROM images WHERE id=$id and status=1";
+$result = $con->query($sql);
+$meta_sql = "SELECT * FROM images WHERE id=$id and status=1";
+$meta_result = $con->query($meta_sql);
+$title = "";
+$description = "";
+
+while($row = $meta_result->fetch_assoc()) {
+
+    $title =  $row[title];
+    $description = $row[description];
+
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="<?php echo $description; ?>">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title><?php echo $title; ?> - Pixels</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -22,14 +47,14 @@ session_start();
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="glyphicon glyphicon-th"></span>
             </button>
-            <a class="navbar-brand" href="index.php">www.pixel.ee</a>
+            <a class="navbar-brand" href="index.php">Esileht</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
 
-                <form class="navbar-form navbar-left" role="search">
+                <form class="navbar-form navbar-left" role="search" method="get" action="otsi.php">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Otsi märksõna järgi...">
+                        <input type="text" name="id" class="form-control" placeholder="Otsi märksõna järgi...">
                     </div>
                     <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                 </form>
@@ -61,23 +86,12 @@ session_start();
 
 <?php
 
-include("db.php");
-$con=mysqli_connect($server, $db_user, $db_pwd,$db_name) //connect to the database server
-or die ("Could not connect to mysql because ".mysqli_error());
-
-mysqli_select_db($con,$db_name)  //select the database
-or die ("Could not select to mysql because ".mysqli_error());
-
-$id = $_GET["id"];
-$sql = "SELECT * FROM images WHERE id=$id and status=1";
-$result = $con->query($sql);
-
 
 while($row = $result->fetch_assoc()) {
 
     echo "<div class='col-md-8'>
 
-                    <img id='pilt' class='img-responsive img-thumbnail' src=".$row["url"].">
+                    <img id='pilt' class='img-responsive img-thumbnail' src='$row[url]'>
         </div>
         <div class='col-md-4'>
             <h2>$row[title]</h2>

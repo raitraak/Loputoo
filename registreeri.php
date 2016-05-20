@@ -21,7 +21,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="glyphicon glyphicon-th"></span>
             </button>
-            <a class="navbar-brand" href="index.php">WebSiteName</a>
+            <a class="navbar-brand" href="index.php">Esileht</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">

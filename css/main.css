@@ -20,6 +20,7 @@
 
 }
 
+
 #header-text {
     color: whitesmoke;
 }
@@ -36,7 +37,7 @@
     padding-top: 40px;
 }
 
-a {
+#navbar a {
 
     color: #2b2b2b;
     text-decoration: none;
@@ -44,13 +45,14 @@ a {
 
 }
 
-h2 {
+.h2title {
     text-align: center;
 }
 
-nav {
+#navbar {
 
     text-align: center;
+
 }
 
 .panel-footer p {
@@ -59,6 +61,10 @@ nav {
 
 #categories {
     padding-top: 15px;
+}
+
+#categories p {
+    color: #c0c0c0;
 }
 
 #categories a {
@@ -71,7 +77,23 @@ nav {
     margin-top: 200px;
 }
 
+.btn-danger {
+    margin-top: 4px;
+}
 
+.thumbnail {
+    position: relative;
+    overflow: hidden;
+}
 
+.btn-xs {
+    position: absolute;
+    right: 0;
+    margin-right: 8px;
 
+}
+
+.pic-info {
+    margin: 10px;
+}
 

@@ -21,7 +21,7 @@ while($row = $result->fetch_array()) {
     echo "<div class='col-lg-4 col-sm-6'>
 
                 <a class='thumbnail' href='pilt.php?id=$row[id]'>
-    <img src='$row[url]' class='img-responsive'>
+    <img src='https://ekzmsje.cloudimg.io/s/resizeinbox/400x300/http://localhost:8888/lõputöö/$row[url]' onload='fadeIn(this)' class='img-responsive'>
                 </a>
         </div>";
 

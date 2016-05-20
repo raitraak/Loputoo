@@ -20,8 +20,6 @@ exit;
 
 ?>
 
-
-	
 	
 	
 	<!DOCTYPE html>
@@ -43,35 +41,27 @@ exit;
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="glyphicon glyphicon-th"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">WebSiteName</a>
+                <a class="navbar-brand" href="index.php">Esileht</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Lisa uus pilt <span class="glyphicon glyphicon-upload"></span></a></li>
-                </ul>
+
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="lae_pilt.php">Lisa uus pilt <span class="glyphicon glyphicon-upload"></span></a></li>
+
 
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret pull-right"></span> <?php echo "".$_SESSION['username']; ?></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Konto</a>
                         <ul class="dropdown-menu">
-                            <li><?php
-                                if ( isset($_SESSION['login']) || $_SESSION['login'] == true) {
-                                    ?>
-                                    <a href="muuda_parooli.php">Muuda parooli</a>
-                                    <?php
-                                }
-                                ?></li>
-
+                            <li><a href="muuda_parooli.php"><span class="glyphicon glyphicon-pencil"></span> Muuda parooli</a></li>
+                            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logi välja</a></li>
 
                         </ul>
 
-                    </li>
-                    <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logi välja</a></li>
 
+
+                    </li>
                 </ul>
             </div>
         </div>

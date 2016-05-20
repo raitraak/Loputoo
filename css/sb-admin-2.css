@@ -352,3 +352,14 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+
+.panel-footer {
+
+    margin-top: 200px;
+}
+
+.btn-block {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+

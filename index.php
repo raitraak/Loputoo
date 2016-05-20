@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 
@@ -10,7 +11,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Pixels - Kvaliteetsete fotode keskkond</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -20,13 +21,13 @@ session_start();
 
 <header class="header-image">
 
-<nav class="navbar">
+<nav class="navbar" id="navbar">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="glyphicon glyphicon-th"></span>
             </button>
-            <a class="navbar-brand" href="#">www.pixel.ee</a>
+            <a class="navbar-brand" href="#"><img class="img-responsive" id="logo" src="img/logo.png"></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
 
@@ -52,25 +53,28 @@ session_start();
 </nav>
     <div class="container">
 
-    <h1 id="header-title">Fotoalbum fotograafidele ja digikunstnikele</h1>
+    <h1 id="header-title">Kvaliteetsete fotode keskkond</h1>
 
         <p id="header-text">Oled teinud mõne ägeda pildi ja tahaksid seda teistega jagada? Registreeri konto ja lae oma töö üles. Meie vaatame selle üle ja sobivusel lisame esilehele. Pixels on loodud selleks, et edendada Eesti andekaid fotograafe ja kunstnikke.</p>
 
-        <div class="col-lg-4 col-lg-offset-4" id="search">
+        <div class="col-lg-4 col-lg-offset-4">
+            <form method="GET" action="otsi.php" id="search">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Otsi pilte märksõna järgi...">
+                <input type="text" name="id" class="form-control" placeholder="Otsi pilte märksõna järgi...">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
       </span>
             </div><!-- /input-group -->
+            </form>
             <div class="row" id="categories">
-            <a href="#">inimesed</a>
-            <a href="#">loomad</a>
-            <a href="#">arhidektuur</a>
-            <a href="#">autod</a>
-            <a href="#">abstraktne</a>
-            <a href="#">abstraktne</a>
-            <a href="#">abstraktne</a>
+                <p>Kategooriad:</p>
+            <a href="kategooria.php?id=loodus">loodus</a>
+            <a href="kategooria.php?id=loomad">loomad</a>
+            <a href="kategooria.php?id=inimesed">inimesed</a>
+            <a href="kategooria.php?id=arhidektuur">arhidektuur</a>
+            <a href="kategooria.php?id=abstraktne">abstraktne</a>
+            <a href="kategooria.php?id=digikunst">digikunst</a>
+            <a href="kategooria.php?id=muu">muu</a>
             </div>
 
         </div><!-- /.col-lg-6 -->
@@ -82,8 +86,7 @@ session_start();
 
 <div class="row">
 
-    <h2>Viimati lisatud pildid</h2>
-
+    <h2 class="h2title">Viimati lisatud pildid</h2>
 
 
         <?php
@@ -101,5 +104,6 @@ session_start();
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
 </body>
 </html>

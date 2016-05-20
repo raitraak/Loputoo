@@ -1,33 +1,36 @@
-
-	
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
-    <title>PHP Login System</title>
+    <title>Konto aktiveerimine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-	    <link href="css/style.css" rel="stylesheet" media="screen">
+
+	<link href="css/main.css" rel="stylesheet" media="screen">
 </head>
 
 <body>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
-    <div class="logo">
-         <h2><?php include('db.php'); echo $logotxt; ?></h2>
 
-    </div>
-    <form class="form-horizontal" id="login_form">
-         <h2>User Activation</h2>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="glyphicon glyphicon-th"></span>
+				</button>
+				<a class="navbar-brand" href="index.php">Esileht</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="logi_sisse.php"><span class="glyphicon glyphicon-log-in"></span> Logi sisse</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-        <div class="line"></div>
-        
-
-  
-       
-
-
-
+	<div class="container">
+		<h2 class="h2title">Konto aktiveerimine</h2>
 
 <?php
 	include("db.php");
@@ -54,12 +57,12 @@ if (!empty($key))
 			 $query="update ".$table_name."	 set activ_status='1' where activ_key='$key'";
 			 $result=mysqli_query($con,$query) or die('error');
 			
-			 echo "<p>User Account activated successfully.<a href='$url/index.php'>";
-			 echo "Login to continue</a></p>";
+			 echo "<p>Konto edukalt aktiveeritud</p><a href='$url/index.php'>";
+			 echo "Saate nüüd sisse logida</a></p>";
 			 }
 			 else
 			 {
-				 echo "Account already activated";
+				 echo "Konto on juba aktiveeritud";
 				 //header('Location: $url');
 			
 				
@@ -68,7 +71,7 @@ if (!empty($key))
 		 }
 		 else
 		 {
-			 echo "<div class=\"messagebox\"><div id=\"alert-message\">Invalid Activation Key</div></div>";
+			 echo "<div class=\"messagebox\"><div id=\"alert-message\">Vale aktiveerimiskood</div></div>";
 			 //header('Location: $url');
 		 }
 }
@@ -76,7 +79,7 @@ else
 	echo "<div class=\"messagebox\"><div id=\"alert-message\">error</div></div>";
 	
 ?>
-
+	</div>
 </body>
 
 </html>

@@ -40,12 +40,12 @@ exit;
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="glyphicon glyphicon-th"></span>
             </button>
-            <a class="navbar-brand" href="index.php">WebSiteName</a>
+            <a class="navbar-brand" href="index.php">Esileht</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="lae_pilt.php">Lisa uus pilt <span class="glyphicon"></span></a></li>
+                <li><a href="lae_pilt.php">Lisa uus pilt <span class="glyphicon glyphicon-upload"></span></a></li>
 
 
                 <li class="dropdown">
@@ -55,8 +55,6 @@ exit;
                         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logi välja</a></li>
 
                     </ul>
-
-
 
                 </li>
             </ul>

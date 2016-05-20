@@ -25,7 +25,6 @@ if (!isset($_SESSION['admin'])) {
     <!-- Custom CSS -->
     <link href="css/sb-admin-2.css" rel="stylesheet">
 
-   
     <!-- Custom Fonts -->
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
 
@@ -68,6 +67,9 @@ if (!isset($_SESSION['admin'])) {
         $selectinactive = "select id from " . $table_name . " where activ_status='0'";
         $result = mysqli_query($con,$selectinactive);
         $inactivecount = mysqli_num_rows($result);
+
+        $sql = "SELECT * FROM images WHERE status=0 ORDER by id DESC";
+        $result = $con->query($sql);
 
         ?>
 
@@ -221,28 +223,29 @@ if (!isset($_SESSION['admin'])) {
                     <h1>Administreeri</h1>
 
 <?php
-                    $sql = "SELECT * FROM images WHERE status=0 ORDER by id DESC";
-                    $result = $con->query($sql);
 
-                    while($row = $result->fetch_array()) {
+        while($row = $result->fetch_array()) {
+            echo "<div class='col-lg-4 col-sm-6'>
 
-                    echo "<div class='col-lg-4 col-sm-6'>
+                        <div class='thumbnail'>
+                            <a href='admin_image_preview.php?id=$row[id]'><img src='$row[url]' class='img-responsive'>
+                             </a>
 
-                        <a class='thumbnail' href='pilt.php?id=$row[id]'>
-                            <img src='$row[url]' class='img-responsive' onload='fadeIn(this)'>
-                        </a>
-                        <form method='POST' id='delete' action='admin_delete.php?id=$row[id]'>
-                <button type='submit' id='$row[id]'>Kustuta</button>
+
+
+                <form method='POST' action='admin_delete.php?id=$row[id]'>
+                <button type='submit' class='btn btn-danger btn-xs btn-block' id='$row[id]'>Kustuta</button>
                 </form>
 
-                <form method='POST' id='delete' action='admin_approve.php?id=$row[id]'>
-                <button type='submit' id='$row[id]'>Aksepteeri</button>
+                <form method='POST' action='admin_approve.php?id=$row[id]'>
+                <button type='submit' class='btn btn-success btn-xs btn-block' id='$row[id]'>Aksepteeri</button>
                 </form>
+                        </div>
                     </div>";
-
                     }
-
             ?>
+
+
 
                 </div>
                 <!-- /.col-lg-8 -->
@@ -269,6 +272,10 @@ if (!isset($_SESSION['admin'])) {
     <!-- Custom Theme JavaScript -->
     <script src="js/sb-admin-2.js"></script>
 
+<div class="panel-footer">
+
+    <p>Copyright 2016, Developed by Rait Rääk</p>
+</div>
 </body>
 
 </html>

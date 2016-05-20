@@ -1,15 +1,8 @@
 <?php
 
-include("db.php");
-$con=mysqli_connect($server, $db_user, $db_pwd,$db_name) //connect to the database server
-or die ("Could not connect to mysql because ".mysqli_error());
-
-mysqli_select_db($con,$db_name)  //select the database
-or die ("Could not select to mysql because ".mysqli_error());
-
 session_start();
 
-if ( !isset($_SESSION['login']) || $_SESSION['login'] !== true) {
+if ( !isset($_SESSION['login']) || $_SESSION['login'] !== true) { //Allow only logged in user to access
 
     if(empty($_SESSION['access_token']) || empty($_SESSION['access_token']['oauth_token']) || empty($_SESSION['access_token']['oauth_token_secret'])){
 
@@ -25,6 +18,14 @@ if ( !isset($_SESSION['login']) || $_SESSION['login'] !== true) {
     }
 }
 
+include("db.php");
+$con=mysqli_connect($server, $db_user, $db_pwd,$db_name) //connect to the database server
+or die ("Could not connect to mysql because ".mysqli_error());
+
+mysqli_select_db($con,$db_name)  //select the database
+or die ("Could not select to mysql because ".mysqli_error());
+
+//Variables to receive image info
 $title = $_POST["imgtitle"];
 $description = $_POST["imgdescription"];
 $category = $_POST["imgcategory"];
@@ -34,7 +35,7 @@ $path = "img/uploads/".$_FILES["file"]["name"];
 $uploadOk = 1;
 $imageFileType = pathinfo($path,PATHINFO_EXTENSION);
 
-
+//SQL query
 $sql = "INSERT INTO images (title,description,category, tags, user, url, status)
 VALUES ('$title','$description','$category','$tags','$user','$path', 0)";
 
@@ -60,15 +61,14 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 if ($uploadOk == 0) {
 
 
-    echo "Üleslaadimine ebaõnnestus";
+    echo "Üleslaadimine ebaõnnestus"; //Upload error
 
 } else {
 
-    $con->query($sql);
-    move_uploaded_file($_FILES["file"]["tmp_name"], $path);
+    $con->query($sql); //Add image info to database
+    move_uploaded_file($_FILES["file"]["tmp_name"], $path); //Upload file
     echo "Üleslaadimine õnnestus! Pilt on saadetud ülevaatamisele ja avaldatakse esimesel võimalusel";
 }
-
 
 $con->close();
 
