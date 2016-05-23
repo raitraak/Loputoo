@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>PHP Login System</title>
+    <title>Admin login - Pixels</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -11,24 +11,19 @@
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.validate.js"></script>
-<div class="logo">
-    <h2><?php include('db.php');
-        echo $logotxt; ?></h2>
-
-</div>
 <form class="form-horizontal" id="admin_form">
-    <h2>Admin Sign In</h2>
+    <h2>Logi sisse</h2>
 
     <div class="line"></div>
     <div class="form-group">
-        <input type="text" id="inputEmail" name="username" placeholder="Admin Username">
+        <input type="text" id="inputEmail" name="username" placeholder="Kasutajanimi">
     </div>
     <div class="form-group">
-        <input type="password" id="inputPassword" name="password" placeholder="Admin Password">
+        <input type="password" id="inputPassword" name="password" placeholder="Parool">
     </div>
 
     <button type="submit" class="btn btn-lg btn-primary btn-sign-in"
-            data-loading-text="Loading...">Sign in
+            data-loading-text="Laeb...">Logi sisse
     </button>
     <div class="messagebox">
         <div id="alert-message"></div>

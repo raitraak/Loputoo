@@ -31,7 +31,8 @@ $description = $_POST["imgdescription"];
 $category = $_POST["imgcategory"];
 $tags = $_POST["imgtags"];
 $user = $_SESSION["username"];
-$path = "img/uploads/".$_FILES["file"]["name"];
+$str_replace = "img/uploads/".$_FILES["file"]["name"];
+$path = str_replace(" ", "", $str_replace);
 $uploadOk = 1;
 $imageFileType = pathinfo($path,PATHINFO_EXTENSION);
 
@@ -67,7 +68,7 @@ if ($uploadOk == 0) {
 
     $con->query($sql); //Add image info to database
     move_uploaded_file($_FILES["file"]["tmp_name"], $path); //Upload file
-    echo "Üleslaadimine õnnestus! Pilt on saadetud ülevaatamisele ja avaldatakse esimesel võimalusel";
+    echo "Üleslaadimine õnnestus. Pilt on saadetud ülevaatamisele ja avaldatakse esimesel võimalusel.";
 }
 
 $con->close();

@@ -1,7 +1,8 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <head>
-    <title>PHP Login System</title>
+    <title>Taasta parool - Pixels</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -18,11 +19,9 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="glyphicon glyphicon-th"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">WebSiteName</a>
+                <a class="navbar-brand" href="index.php">Esileht</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
@@ -33,7 +32,6 @@
             </div>
         </div>
     </nav>
-
 
 	<form class="form-horizontal" id="reset_pwd" method="post">
          <h2>Taasta parool</h2>
@@ -65,18 +63,15 @@ or die ("Could not select to mysql because ".mysqli_error());
 			 //html
 			 ?>
 
-
-
-
                  <div class="control-group">
-            <input class="form-control" type="password" id="password1" name="password1" placeholder="Password">
+            <input class="form-control" type="password" id="password1" name="password1" placeholder="Parool">
         </div>
         <div class="control-group">
-            <input class="form-control" type="password" id="password2" name="password2" placeholder="Retype Password">
+            <input class="form-control" type="password" id="password2" name="password2" placeholder="Parool uuesti">
         </div>
 
         <button
-        type="submit" class="btn btn-lg btn-primary btn-sign-in" data-loading-text="Loading...">Reset</button>
+        type="submit" class="btn btn-lg btn-primary btn-sign-in" data-loading-text="Laeb...">Taasta</button>
 
             <div class="messagebox">
                 <div id="alert-message"></div>
@@ -120,11 +115,11 @@ else
                 },
 				messages: {
                         password1: {
-                            required: "Enter password "
+                            required: "Sisesta parool "
                         },
                         password2: {
-                            required: "Retype your password",
-							equalTo: "Passwords must match"
+                            required: "Parool uuesti",
+							equalTo: "Paroolid peavad ühtima"
 
                         },
                     },

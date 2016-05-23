@@ -2,7 +2,7 @@
 	
 	<!DOCTYPE html>
 <head>
-    <title>PHP Login System</title>
+    <title>Konto aktiveerimine - Pixels</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -13,12 +13,8 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
-    <div class="logo">
-         <h2><?php include('db.php'); echo $logotxt; ?></h2>
-
-    </div>
     <form class="form-horizontal" id="login_form">
-         <h2>User Activation</h2>
+         <h2>Konto aktiveerimine</h2>
 
         <div class="line"></div>
         
@@ -51,7 +47,7 @@ or die ("Could not select to mysql because ".mysqli_error());
 		     $result=mysqli_query($con,$query) or die('error');
 			 if(mysqli_num_rows($result))
 			 {  
-				echo "Account already activated";
+				echo "Konto on juba aktiveeritud";
 			 }
 			 else
 			 {
@@ -66,17 +62,17 @@ or die ("Could not select to mysql because ".mysqli_error());
 				//send email for the user with password
 	
 	$to=$email;
-	$subject="Activate Account";
-	$body="Hi ".$user."<br /><br />".
-	"Click the below link to activate your account<br />".
-	"<a href=\"$url/activate.php/?k=$activ_key\"> Activate Account </a>".
-	"<br /><br /><br/ > Link not working? Paste the below into your browser:<br />".
-	$url."/activate.php/?k=".$activ_key."\  <br /><br />Thanks <br />";
+	$subject="Aktiveeri konto";
+	$body="Tere ".$user."<br /><br />".
+	"Konto aktiveerimiseks kliki allolevat linki<br />".
+	"<a href=\"$url/activate.php/?k=$activ_key\"> Aktiveeri konto </a>".
+	"<br /><br /><br/ > Link ei tööta? Kopeerige see oma veebilehitseja aadressiribale:<br />".
+	$url."/activate.php/?k=".$activ_key."\  <br /><br />Aitäh <br />";
 	$headers="From:".$from_address;
 	$headers .= 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 	mail($to,$subject,$body,$headers);
-	echo "Activation code has been successfully sent to your Email Address";
+	echo "Teile saadeti parooli taastamiseks e-mail";
 	
 	 
 				//echo "User Account not yet activated.Check your mail for activation details.";
@@ -85,7 +81,7 @@ or die ("Could not select to mysql because ".mysqli_error());
 		 }	
 	else
 	{
-	die("Username Doesn't exist");
+	die("Sellist kasutajanime ei leidu");
 	}
 
 ?>

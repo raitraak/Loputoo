@@ -78,9 +78,12 @@ $result = $con->query($sql);
                 <a href="kategooria.php?id=loodus">loodus</a>
                 <a href="kategooria.php?id=loomad">loomad</a>
                 <a href="kategooria.php?id=inimesed">inimesed</a>
-                <a href="kategooria.php?id=arhidektuur">arhidektuur</a>
+                <a href="kategooria.php?id=autod">autod</a>
+                <a href="kategooria.php?id=ajalugu">ajalugu</a>
+                <a href="kategooria.php?id=arhitektuur">arhitektuur</a>
                 <a href="kategooria.php?id=abstraktne">abstraktne</a>
                 <a href="kategooria.php?id=digikunst">digikunst</a>
+                <a href="kategooria.php?id=must-valge">must-valge</a>
                 <a href="kategooria.php?id=muu">muu</a>
             </div>
 
@@ -103,7 +106,7 @@ $result = $con->query($sql);
             echo "<div class='col-lg-4 col-sm-6'>
 
                 <a class='thumbnail' href='pilt.php?id=$row[id]'>
-    <img src='$row[url]' class='img-responsive'>
+    <img src='$row[url]' class='img-responsive' alt='$row[title]'>
                 </a>
         </div>";
 

@@ -34,20 +34,20 @@ if (mysqli_num_rows($result)) {
     $result = mysqli_query($con,$query) or die('error');
 
     $to = $row['email'];
-    $subject = "Password Reset";
-    $body = "Hi " . $row['username'] .
-        "<br />Your account password has been reset: <a href=\"$url/reset.php?k=$re_activ_key\"> Please Click to set a new password</a><br /> <br /> Thanks";
+    $subject = "Parooli uuendamine";
+    $body = "Tere " . $row['username'] .
+        "<br />Parooli uuendamine: <a href=\"$url/reset.php?k=$re_activ_key\"> Parooli uuendamiseks vajuta siia</a><br /> <br /> Thanks";
     $headers = "From:" . $from_address;
     $headers .= 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
     mail($to, $subject, $body, $headers);
 	//echo $body;
-    echo "Please Check your Email for resetting your password";
+    echo "Teile on saadetud email parooli taastamiseks";
     //header('Content-type: application/json');
     // echo json_encode( array('result'=>1,'txt'=>"Password has been successfully sent to your Email Address"));
 } else {
     //echo json_encode( array('result'=>0,'txt'=>"User account doesn't Exist"));
-    echo "User account doesn't Exist";
+    echo "Sellist kasutajat ei leidu";
 }
 ?>
 	

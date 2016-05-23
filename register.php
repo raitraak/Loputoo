@@ -51,11 +51,11 @@ die($msg_reg_email);
   //send email for the user with password
 	
 	$to=$email;
-	$subject="New Registration";
-	$body="Hi ".$username.
-	"<br /><br /> Thanks for your registration.<br />".
-	"Click the below link to activate your account<br /><br />".
-	"<a href=\"$url/activate.php?k=$activ_key\"> Activate Account </a><br /><br /> Thanks<br />";
+	$subject="Konto aktiveerimine";
+	$body="Tere ".$username.
+	"<br /><br /> Aitäh, et registreerisite konto Pixels'i keskkonnas!<br />".
+	"Konto aktiveerimiseks vajutage allolevale lingile<br /><br />".
+	"<a href=\"$url/activate.php?k=$activ_key\"> Aktiveeri konto </a><br /><br /> Pixels.ee<br />";
 	
 	
 	$headers = 'MIME-Version: 1.0' . "\r\n";

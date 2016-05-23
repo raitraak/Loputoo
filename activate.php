@@ -57,8 +57,7 @@ if (!empty($key))
 			 $query="update ".$table_name."	 set activ_status='1' where activ_key='$key'";
 			 $result=mysqli_query($con,$query) or die('error');
 			
-			 echo "<p>Konto edukalt aktiveeritud</p><a href='$url/index.php'>";
-			 echo "Saate nüüd sisse logida</a></p>";
+			 echo "<p style='text-align: center;'>Konto edukalt aktiveeritud</p>";
 			 }
 			 else
 			 {
@@ -76,7 +75,7 @@ if (!empty($key))
 		 }
 }
 else
-	echo "<div class=\"messagebox\"><div id=\"alert-message\">error</div></div>";
+	echo "<div style='text-align: center;' class=\"messagebox\"><div id=\"alert-message\">viga</div></div>";
 	
 ?>
 	</div>

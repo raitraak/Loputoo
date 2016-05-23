@@ -54,6 +54,7 @@ exit;
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Konto</a>
                         <ul class="dropdown-menu">
+                            <li><a href="konto.php"><span class="glyphicon glyphicon-home"></span> Kodu</a></li>
                             <li><a href="muuda_parooli.php"><span class="glyphicon glyphicon-pencil"></span> Muuda parooli</a></li>
                             <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logi välja</a></li>
 
@@ -74,13 +75,13 @@ exit;
             <input class="form-control" type="text" id="inputuserid" name="username" placeholder="Username" value=<?php echo $_SESSION['username']; ?> disabled>
         </div>
 		<div class="form-group">
-            <input class="form-control" type="password" id="inputPasswordOld" name="oldpassword" placeholder="Curent Password">
+            <input class="form-control" type="password" id="inputPasswordOld" name="oldpassword" placeholder="Praegune parool">
         </div>
         <div class="form-group">
-            <input class="form-control" type="password" id="inputPassword" name="password" placeholder="New Password">
+            <input class="form-control" type="password" id="inputPassword" name="password" placeholder="Uus parool">
         </div>
         <div class="form-group">
-            <input class="form-control" type="password" id="inputPassword_2" name="retype_password" placeholder="Retype Password">
+            <input class="form-control" type="password" id="inputPassword_2" name="retype_password" placeholder="Uus parool uuesti">
         </div>	
 
    
@@ -99,16 +100,6 @@ exit;
 		jQuery.validator.addMethod("noSpace", function(value, element) { 
      return value.indexOf(" ") < 0 && value != ""; 
   }, "Spaces are not allowed");
-/*jQuery.validator.addMethod("maxlength", function (value, element, param) {
-    console.log('element= ' + $(element).attr('name') + ' param= ' + param )
-    if ($(element).val().length > param) {
-        return false;
-    } else {
-		console.log($(element).val().length);
-        return true;
-    }
-}, "You have reached the maximum number of characters allowed for this field.");
-*/
   
             $("#change_password_form").submit(function() {
 
@@ -136,23 +127,23 @@ exit;
                     },
                     messages: {
                         username: {
-                            required: "Enter Username",
+                            required: "Kasutajanimi",
                         },
 						 oldpassword: {
-                            required: "Enter your old password",
-                            minlength: "Password must be minimum 6 characters"
+                            required: "Praegune parool",
+                            minlength: "Parool peab olema vähemalt 6 tähemärki"
 							//maxlength: "Password must be maximum 8 characters"
 							
                         },
                         password: {
-                            required: "Enter your password",
-                            minlength: "Password must be minimum 6 characters"
+                            required: "Uus parool",
+                            minlength: "Parool peab olema vähemalt 6 tähemärki"
 							//maxlength: "Password must be maximum 8 characters"
 							
                         },
                         retype_password: {
-                            required: "Enter confirm password",
-                            equalTo: "Passwords must match"
+                            required: "Uus parool uuesti",
+                            equalTo: "Paroolid ei ühti"
                         },
                     },
 

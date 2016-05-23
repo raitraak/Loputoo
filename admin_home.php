@@ -221,30 +221,25 @@ if (!isset($_SESSION['admin'])) {
                     </div>
 
                     <h1>Administreeri</h1>
-
 <?php
 
         while($row = $result->fetch_array()) {
             echo "<div class='col-lg-4 col-sm-6'>
 
                         <div class='thumbnail'>
-                            <a href='admin_image_preview.php?id=$row[id]'><img src='$row[url]' class='img-responsive'>
+                            <a href='admin_image_preview.php?id=$row[id]'><img src='$row[url]' class='img-responsive' alt='$row[title]'>
                              </a>
+                                <form method='POST' action='admin_delete.php?id=$row[id]'>
+                                    <button type='submit' class='btn btn-danger btn-xs btn-block' id='$row[id]'>Kustuta</button>
+                                  </form>
 
-
-
-                <form method='POST' action='admin_delete.php?id=$row[id]'>
-                <button type='submit' class='btn btn-danger btn-xs btn-block' id='$row[id]'>Kustuta</button>
-                </form>
-
-                <form method='POST' action='admin_approve.php?id=$row[id]'>
-                <button type='submit' class='btn btn-success btn-xs btn-block' id='$row[id]'>Aksepteeri</button>
-                </form>
+                                <form method='POST' action='admin_approve.php?id=$row[id]'>
+                                     <button type='submit' class='btn btn-success btn-xs btn-block' id='$row[id]'>Aksepteeri</button>
+                                 </form>
                         </div>
                     </div>";
                     }
             ?>
-
 
 
                 </div>
@@ -267,14 +262,12 @@ if (!isset($_SESSION['admin'])) {
 
  <!-- Metis Menu Plugin JavaScript -->
     <script src="js/metisMenu.js"></script>
-   
 
     <!-- Custom Theme JavaScript -->
     <script src="js/sb-admin-2.js"></script>
 
 <div class="panel-footer">
 
-    <p>Copyright 2016, Developed by Rait Rääk</p>
 </div>
 </body>
 

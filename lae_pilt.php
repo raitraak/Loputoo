@@ -22,8 +22,11 @@ exit;
 
 <!DOCTYPE html>
 <head>
-    <title>PHP Login System</title>
+    <title>Lae pilt - Pixels</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kvaliteetsete fotode keskkond fotograafidele ja digikunstnikele.">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/main.css" rel="stylesheet" media="screen">
@@ -51,6 +54,7 @@ exit;
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Konto</a>
                     <ul class="dropdown-menu">
+                        <li><a href="konto.php"><span class="glyphicon glyphicon-home"></span> Kodu</a></li>
                         <li><a href="muuda_parooli.php"><span class="glyphicon glyphicon-pencil"></span> Muuda parooli</a></li>
                         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logi välja</a></li>
 
@@ -67,11 +71,10 @@ exit;
     <form method="post" action="upload.php" class="form-horizontal" id="img_upload" enctype="multipart/form-data">
         <div class="form-group">
         <h2>Lisa uus pilt</h2>
+            <p><strong class="text-danger">Tingimused: </strong>Pixels hoiab oma andmebaasis ainult kunstilise väärtusega pilte, mis on administraatori poolt heaks kiidetud. Pilt peab olema .JPG või .PNG faililaiendiga. Võõraid töid ilma nõusolekuta üles laadida on keelatud!</p>
         </div>
         <div class="form-group">
-
             <input class="form-control" type="text" name="imgtitle" id="title" placeholder="Pildi pealkiri">
-
         </div>
 
         <div class="form-group">
@@ -87,72 +90,64 @@ exit;
                 <option>loodus</option>
                 <option>loomad</option>
                 <option>inimesed</option>
+                <option>autod</option>
+                <option>ajalugu</option>
                 <option>arhitektuur</option>
                 <option>abstraktne</option>
                 <option>digikunst</option>
+                <option>must-valge</option>
                 <option>muu</option>
                 </select>
 
         </div>
-
         <div class="form-group">
-
             <input class="form-control" type="text" name="imgtags" id="tags" placeholder="Märksõnad">
-
+        </div>
+        <div class="form-group">
+            <input type="file" id="imgfile" name="file">
+            <p class="help-block">Max lubatud pildi suurus 5mb</p>
         </div>
 
         <div class="form-group">
-
-            <input type="file" id="imgfile" name="file">
-
+            <label>
+                <input name="check" type="checkbox"> Nõustun tingimustega
+            </label>
         </div>
             <div class="form-group">
-        <button type="submit" class="btn btn-primary" data-loading-text="Laeb...">Lae üles</button>
 
+        <button type="submit" class="btn btn-primary" data-loading-text="Laeb...palun oodake">Lae üles</button>
             </div>
-
-
         <div class="messagebox">
-
             <div id="alert-message"></div>
         </div>
-
-
     </form>
-
 
     <script>
         $(document).ready(function() {
 
-            jQuery.validator.addMethod("noSpace", function(value, element) {
-                return value.indexOf(" ") < 0 && value != "";
-            }, "Spaces are not allowed");
-            /*jQuery.validator.addMethod("maxlength", function (value, element, param) {
-             console.log('element= ' + $(element).attr('name') + ' param= ' + param )
-             if ($(element).val().length > param) {
-             return false;
-             } else {
-             console.log($(element).val().length);
-             return true;
-             }
-             }, "You have reached the maximum number of characters allowed for this field.");
-             */
 
             $("#img_upload").submit(function() {
 
                 $("#img_upload").validate({
                     rules: {
                         imgtitle: {
-                            required: true
+                            required: true,
+                            maxlength: 55
                         },
                         imgdescription: {
-                            required: true
+                            required: true,
+                            maxlength: 250
                         },
                         imgcategory: {
                             required: true
 
                         },
                         imgtags: {
+                            required: true
+                        },
+
+                        check: {
+
                             required: true
                         },
 
@@ -163,10 +158,12 @@ exit;
                     },
                     messages: {
                         imgtitle: {
-                            required: "Palun lisa pildi pealkiri"
+                            required: "Palun lisa pildi pealkiri",
+                            maxlength: "Pealkiri on liiga pikk"
                         },
                         imgdescription: {
-                            required: "Palun lisa pildi kirjeldus"
+                            required: "Palun lisa pildi kirjeldus",
+                            maxlength: "Kirjeldus on liiga pikk"
 
                         },
                         imgtags: {
@@ -175,6 +172,11 @@ exit;
                         },
                         imgcategory: {
                             required: "Palun lisa kategooria"
+                        },
+
+                        check: {
+
+                            required: "Nõustu tingimustega"
                         },
 
                         file: {
@@ -217,7 +219,6 @@ exit;
                             $('.messagebox').fadeIn('slow');
                             $("button").button('reset');
                             $("#img_upload")[0].reset();
-
                         }
                     });
                 }
@@ -230,7 +231,7 @@ exit;
 </div>
 
 
-<div class="panel-footer navbar-fixed-bottom">
+<div class="panel-footer">
 
     <p>Copyright 2016, Developed by Rait Rääk</p>
 </div>

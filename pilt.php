@@ -16,6 +16,7 @@ $meta_result = $con->query($meta_sql);
 $title = "";
 $description = "";
 
+// SEO meta info
 while($row = $meta_result->fetch_assoc()) {
 
     $title =  $row[title];
@@ -37,9 +38,11 @@ while($row = $meta_result->fetch_assoc()) {
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" media="screen">
 </head>
 <body>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <nav class="navbar navbar-default">
     <div class="container">
@@ -86,12 +89,11 @@ while($row = $meta_result->fetch_assoc()) {
 
 <?php
 
-
 while($row = $result->fetch_assoc()) {
 
     echo "<div class='col-md-8'>
 
-                    <img id='pilt' class='img-responsive img-thumbnail' src='$row[url]'>
+                  <img class='img-responsive img-thumbnail' src='$row[url]' alt='$row[title]'>
         </div>
         <div class='col-md-4'>
             <h2>$row[title]</h2>
@@ -106,13 +108,10 @@ while($row = $result->fetch_assoc()) {
 
 
 ?>
-
 </div>
 
 <div class="panel-footer">
     <p>Copyright 2016, Developed by Rait Rääk</p>
 </div>
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

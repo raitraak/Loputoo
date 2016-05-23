@@ -51,20 +51,20 @@ if (mysqli_num_rows($result)) {
     //send email for the user with password
 
     $to = $email;
-    $subject = "Password Reset";
-    $body = "Hi " . $username .
-        "<br /> Your new password is updated successfully<br />";
+    $subject = "Parooli muutmine õnnestus";
+    $body = "Tere " . $username .
+        "<br /> Sinu parool on edukalt uuendatud<br />";
 
     $headers = "From:" . $from_address;
     $headers .= 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
     mail($to, $subject, $body, $headers);
-    echo "Password updated Successfully";
+    echo "Parool edukalt uuendatud";
 	 }
 	 else{
-		 echo "password mismatch";
+		 echo "Parool ei ühti";
 	 }
 } else {
-    echo "Cannot change password:Username/password mismatch";
+    echo "Parooli muutmine ebaõnnestus:kasutaja/parool ei ühti";
 }
 ?>

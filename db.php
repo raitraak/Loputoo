@@ -27,8 +27,8 @@ $msg_reg_email='See email on juba registreeritud';
 $msg_reg_activ='Aitäh! Teile saadetakse email konto aktiveerimiseks';
 
 //Admin login
-$msg_admin_pwd='Incorect password';
-$msg_admin_user='Username Doesn\'t exist';
+$msg_admin_pwd='Vale parool';
+$msg_admin_user='Sellist kasutajat ei eksisteeri';
 
 
 //LOGO text

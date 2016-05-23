@@ -4,19 +4,16 @@ session_start();
 if ( isset($_SESSION['login']) || $_SESSION['login'] == true) {
 
     header("Location: konto.php");
-
 }
 
-
 ?>
-
-
 <!DOCTYPE html>
 <head>
-    <title>PHP Login System</title>
+    <title>Logi sisse - Pixels</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kvaliteetsete fotode keskkond fotograafidele ja digikunstnikele.">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/main.css" rel="stylesheet" media="screen">
@@ -30,7 +27,7 @@ if ( isset($_SESSION['login']) || $_SESSION['login'] == true) {
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.php">WebSiteName</a>
+            <a class="navbar-brand" href="index.php">Esileht</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
 
@@ -39,7 +36,6 @@ if ( isset($_SESSION['login']) || $_SESSION['login'] == true) {
 </nav>
 
 <div class="container">
-
 
     <form class="form-horizontal" id="login_form">
          <h3>Logi sisse või loo <a href="registreeri.php">uus konto</a></h3>
@@ -68,8 +64,7 @@ if ( isset($_SESSION['login']) || $_SESSION['login'] == true) {
 		</div>
     </form>
 </div>
-	
-</script>
+
 	<script type="text/javascript">
       (function() {
        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
@@ -77,6 +72,7 @@ if ( isset($_SESSION['login']) || $_SESSION['login'] == true) {
        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
      })();
     </script>
+
  <script>
         $(document).ready(function() {
 		jQuery.validator.addMethod("noSpace", function(value, element) { 
@@ -110,15 +106,11 @@ onfocusout: false,
                         },
                     },
 
-
-
                     errorPlacement: function(error, element) {
                         error.hide();
 						$('.messagebox').hide();
                         error.appendTo($('#alert-message'));
                         $('.messagebox').slideDown('slow');
-                       
-						
 						
                     },
                     highlight: function(element, errorClass, validClass) {
@@ -166,11 +158,9 @@ onfocusout: false,
             });
         
         });
-		
 
     </script>
 <div class="panel-footer navbar-fixed-bottom">
-
     <p>Copyright 2016, Developed by Rait Rääk</p>
 </div>
 </body>

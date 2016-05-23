@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <head>
-    <title>PHP Login System</title>
+    <title>Parooli taastamine - Pixels</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kvaliteetsete fotode keskkond fotograafidele ja digikunstnikele.">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/main.css" rel="stylesheet" media="screen">
@@ -11,7 +14,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
 
-
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
@@ -20,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">WebSiteName</a>
+                <a class="navbar-brand" href="index.php">Esileht</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
 
