@@ -1,18 +1,18 @@
 <?php
 	//Database configuration
 $server='localhost';
-$db_user='root';
-$db_pwd='root';
-$db_name='loputoo';
-$table_name='users';
-$table_name_social='users_social';
+$db_user='';
+$db_pwd='';
+$db_name='';
+$table_name='';
+$table_name_social='';
 //email configuraion
-$from_address="vanishedvikings@gmail.com";
+$from_address="";
 //domain configuration
-$url="http://localhost:8888/lõputöö/";
+$url="";
 //Admin username
-$admin_user='admin';
-$admin_password='123456';
+$admin_user='';
+$admin_password='';
 
 //strings
 //login
